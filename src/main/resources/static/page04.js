@@ -18,7 +18,7 @@ $(document).ready(function (){
    
    
     $('#btn1').on('click', function(e){
-	    var url = 'http://localhost:8080/page04/query?empname='+$('#empname').val();
+	    var url = '/page04/query?empname='+$('#empname').val();
 	    var formname = '#example';
 	    bulid_data_table_url(formname,url);
            
