@@ -1,0 +1,70 @@
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"></script>
+</head>
+<table>
+<tr>
+<td>
+<a href = "/page01">分頁(基本)</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href = "/page02">分頁(判斷checkbox checked)</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href = "/page03">分頁(查詢、判斷checkbox checked)</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href = "/page04">分頁(依參數查詢、刪除資料)</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href = "/rejson">response json</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href = "#" id="link2">post json</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href = "/js">javascript include</a>
+</td>
+</tr>
+</table>
+
+<script>
+$('#link2').click(function(e) { 
+	e.preventDefault();
+    postJSON();
+	return false; 
+});
+
+function postJSON() {
+    var requestURL = "/pojson";
+    var dataJSON = [];
+    dataJSON[0] = ["aaa","111"];
+    dataJSON[1] = ["bbb","222"];
+    dataJSON[2] = ["ccc","333"];
+ 
+    $.ajax({
+        url: requestURL,
+        data: JSON.stringify({"mydata":dataJSON}),
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json;charset=utf-8",
+        success: function(returnData){
+            console.log(returnData);
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+            
+        }
+    });
+}
+</script>

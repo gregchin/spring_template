@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"/>
+
+<div id="app" style="width:70%;height:30%">
+  <v-app id="inspire">
+    <h5>Selected: {{selected}}</h5>
+	
+    <v-data-table
+            :headers="headers"
+      :items="desserts"
+      item-key="name"
+      :items-per-page="5"
+      :single-select="false"
+      :hide-default-footer = "false"
+      v-model="selected"
+      :show-select="true"
+    >
+     <template v-slot:top="{ pagination, options, updateOptions }">
+        <v-data-footer 
+          
+          :pagination="pagination" 
+          :options="options"
+          @update:options="updateOptions"
+          items-per-page-text="$vuetify.dataTable.itemsPerPageText"/>
+          
+      </template>
+      <template slot="item.action" slot-scope="props">
+            <v-btn class="mx-2" icon @click="() => deleteaaa(props.item)">
+                <v-icon dark>mdi-delete</v-icon>
+            </v-btn>
+        </template>
+    </v-data-table>
+	
+  </v-app>
+</div>
+<div>
+test
+</div>
+
+<link rel="stylesheet" href="/products.css"/>
+<script src="/products.js"></script>
+
+
