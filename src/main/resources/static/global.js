@@ -4,6 +4,7 @@ function bulid_data_table_url(formname,url) {
 	var table = $(formname).DataTable();
 	table.destroy();
     table = $('#example').DataTable({
+	        "lengthMenu": [[ 5, 10, 15, -1 ],[ 5, 10, 15, "All" ]],
 	            "rowCallback": function(row) {
                     $('td:eq(1)', row).css({color: "4682B4","font-weight":"bold"});
                     $('td:eq(2)', row).css({color: "D2B48C","font-weight":"bold"});
